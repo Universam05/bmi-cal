@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <main class="w-50 round p-4">
+        <input class="rounded" id="weight" type="text">
+        <input class="rounded" id="height" type="text">
+        <button class="btn btn-success rounded" onclick="call()()">Calculate</button>
+        <div id="result"></div>
+        <div id="result2"></div>
+    </main>
+</body>
+
+</html>
+
+
+<script>
+    let myWeight = document.getElementById('weight')
+    let myHeight = document.getElementById('height')
+    let solution = document.getElementById('result')
+    let solution2 = document.getElementById('result2')
+
+    function call(params) {
+        let massIndex = Number(myWeight.value.trim()) / Number(myHeight.value.trim() ** 2)
+
+        if (myWeight.value.trim() === '' || myHeight.value.trim() === '') {
+            solution.innerHTML = `<h1>All field must be fill</h1>`
+            alert('All field are mandatory')
+        }
+
+        else {
+            solution.innerHTML = `<h1>${massIndex} m <sup>2</sup> </h1>`
+        }
+
+
+
+        return function another(params) {
+
+            if (massIndex < 18.5) {
+                solution2.innerHTML = `<h1>You are underweight</h1>`
+
+            } else if (massIndex >= 18.5 && massIndex <= 24.9) {
+                solution2.innerHTML = `<h1>You have a normal weight</h1>`
+            } else if( massIndex >= 25 && massIndex <= 29.9){
+  solution2.innerHTML = `<h1>You are overweight</h1>`
+            } else{
+                  solution2.innerHTML = `<h1>You are obese</h1>`
+            }
+
+        
+        }
+
+    }
+
+
+
+
+
+
+</script>
